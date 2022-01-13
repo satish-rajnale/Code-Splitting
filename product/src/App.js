@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 // import DefComponent from './MyComponents';
 import loadable from "@loadable/component"
+import Header from "home/Header"
+
 
 const DefComponent = loadable(()=> import("./MyComponents"))
 const Layout = loadable(()=> import("./MyComponents"), {
@@ -14,6 +16,7 @@ const Cart = loadable(()=> import("./MyComponents"), {
 function App() {
   return (
     <div className="App">
+      <Header/>
      <div>Product App</div>
      <DefComponent/>
      <Layout/>

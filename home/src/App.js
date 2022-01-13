@@ -2,6 +2,7 @@ import './App.css';
 // import jsondata from "./user.json"
 // import { makeUpperCase } from './utilities';
 import React, {Suspense, useState} from "react"
+import Heading from './Heading';
 // import MyDefaultComponent from './MyDefaultComponent';
 
 
@@ -44,7 +45,8 @@ function App() {
   // }
   return (
     <div className="App">
-      <header className="App-header">
+      <Heading />
+      <div className="App-header">
       HOME App
       <button onClick={onLoad}>Load</button>
       <p>{JSON.stringify(state)}</p>
@@ -54,7 +56,7 @@ function App() {
       {MyDefaultComponent && <MyDefaultComponent/>}
       </Suspense>
      
-      </header>
+      </div>
     </div>
   );
 }
