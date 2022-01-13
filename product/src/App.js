@@ -4,11 +4,20 @@ import './App.css';
 import loadable from "@loadable/component"
 
 const DefComponent = loadable(()=> import("./MyComponents"))
+const Layout = loadable(()=> import("./MyComponents"), {
+  resolveComponent: components => components.Layout
+})
+const Cart = loadable(()=> import("./MyComponents"), {
+  resolveComponent: (components, props) => components[`Cart${props.locationwiseComp}`]
+})
+
 function App() {
   return (
     <div className="App">
      <div>Product App</div>
      <DefComponent/>
+     <Layout/>
+     <Cart locationwiseComp="Local"/>
     </div>
   );
 }
