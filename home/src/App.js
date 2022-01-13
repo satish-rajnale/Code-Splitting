@@ -1,7 +1,7 @@
 import './App.css';
 // import jsondata from "./user.json"
 // import { makeUpperCase } from './utilities';
-import React, {useState} from "react"
+import React, {Suspense, useState} from "react"
 // import MyDefaultComponent from './MyDefaultComponent';
 
 
@@ -24,7 +24,7 @@ render(){
   }
 }
 
-const MyDefaultComponent = loadAsyncComponent(()=> import("./MyDefaultComponent"))
+const MyDefaultComponent = React.lazy(()=> import("./MyDefaultComponent"))
 function App() {
   const [state, setstate] = useState(null);
   // const [MyDefaultComponent, setmydefaultComponent] = useState(null);
@@ -50,7 +50,10 @@ function App() {
       <p>{JSON.stringify(state)}</p>
       
       <br/>
+      <Suspense  fallback={<p>Loading....</p>}>
       {MyDefaultComponent && <MyDefaultComponent/>}
+      </Suspense>
+     
       </header>
     </div>
   );
