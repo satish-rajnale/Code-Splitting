@@ -1,11 +1,11 @@
 import React from 'react'
 import "./App.css"
-function Heading() {
+export default () =>{
     return (
         <div className='header'>
-            Header v2
+            Header 123
         </div>
     )
 }
 
-export default Heading
+
